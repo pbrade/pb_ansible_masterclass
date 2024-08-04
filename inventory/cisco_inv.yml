@@ -1,0 +1,35 @@
+all:
+  children:
+    routers:
+      children:
+        csr_group:
+          hosts:
+            R3:
+              ansible_become: 'true'
+              ansible_become_method: enable
+              ansible_become_password: cisco
+              ansible_connection: ansible.netcommon.network_cli
+              ansible_host: 192.168.237.127
+              ansible_network_os: cisco.ios.ios
+              ansible_password: cisco
+              ansible_user: cisco
+        vios_group:
+          hosts:
+            R1:
+              ansible_become: 'true'
+              ansible_become_method: enable
+              ansible_become_password: cisco
+              ansible_connection: ansible.netcommon.network_cli
+              ansible_host: 192.168.237.125
+              ansible_network_os: cisco.ios.ios
+              ansible_password: cisco
+              ansible_user: cisco
+            R2:
+              ansible_become: 'true'
+              ansible_become_method: enable
+              ansible_become_password: cisco
+              ansible_connection: ansible.netcommon.network_cli
+              ansible_host: 192.168.237.126
+              ansible_network_os: cisco.ios.ios
+              ansible_password: cisco
+              ansible_user: cisco
