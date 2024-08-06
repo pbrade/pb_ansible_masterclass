@@ -1,0 +1,23 @@
+---
+routers:
+  - R1:
+      ip: 192.168.237.125
+      dc: DC1
+      type: ios
+      interfaces: 
+        - fa0/0
+        - fa0/1
+    R2:
+      ip: 192.168.237.126
+      dc: DC2
+      type: ios
+      interfaces: 
+        - fa0/0
+        - fa0/1
+    R3:
+      ip: 192.168.237.127
+      dc: DC3
+      type: ios
+      interfaces: 
+        - fa0/0
+        - fa0/1

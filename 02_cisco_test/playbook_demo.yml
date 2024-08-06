@@ -1,0 +1,21 @@
+---
+- name: Playbook Demo
+  hosts: all
+  connection: ansible.netcommon.network_cli
+  # gather_facts: True
+
+  tasks:
+    - name: Print ansible Config location
+      ansible.builtin.debug:
+        msg: 
+         - "{{ ansible_config_file }}"
+         - "{{ inventory_file }}"
+         - "{{ ansible_facts }}"
+         - "{{ ansible_user }}"
+    - name: Print router hostname
+      ansible.builtin.debug:
+        msg:
+          - "{{ ansible_host }}"
+          - "{{ ansible_facts.net_hostname }}"
+          - "{{  ansible_facts.net_version }}"
+      when: ansible_connection == 'ansible.netcommon.network_cli'

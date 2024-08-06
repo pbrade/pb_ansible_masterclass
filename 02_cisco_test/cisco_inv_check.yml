@@ -9,4 +9,3 @@
          - "{{ inventory_file }}"
          - "{{ ansible_facts }}"
          - "{{ ansible_user }}"
-
