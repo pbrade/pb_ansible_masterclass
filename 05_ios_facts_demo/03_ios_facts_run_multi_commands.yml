@@ -1,0 +1,10 @@
+---
+- name: run multiple commands
+  hosts: R1
+  gather_facts: false
+  tasks:
+    - name: run multiple commands
+      cisco.ios.ios_facts:
+        lines:
+          - show version
+          - show interfaces

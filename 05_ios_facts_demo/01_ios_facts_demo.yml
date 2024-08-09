@@ -12,7 +12,8 @@
     - name: Print ansible_facts
       ansible.builtin.debug:
         msg:
-          - "{{ ansible_facts }}"
+          - "{{ ansible_facts.net_config.split('\n') }}"
+        
 
     # - name: Print ansible_facts
     #   ansible.builtin.debug:

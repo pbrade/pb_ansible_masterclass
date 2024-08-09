@@ -2,9 +2,11 @@
 interface_list:
   - name: FastEthernet0/1
     description: FA0/1_descript
-	ip: 100.1.1.1
-	mask: 255.255.255.0
-  - name: FastEthernet0/2
-    description: FA0/2_descript
-	ip: 100.1.2.2
-	mask: 255.255.255.0
+    ip: 10.1.2.2
+    mask: 255.255.255.0
+
+  - name: FastEthernet1/0
+    descsription: FA1/0_descript
+    ip: 10.2.2.2
+    mask: 255.255.255.0
+    

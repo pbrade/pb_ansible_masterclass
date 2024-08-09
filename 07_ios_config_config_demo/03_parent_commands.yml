@@ -7,11 +7,8 @@
       cisco.ios.ios_config:
         lines:
           - descreption from ansible
-          # - ip address 100.3.3.1.255.255.255.0
-        parents: interface {{ item }}
-      with_items:
-       - FastEthernet0/1 
-       - FastEthernet1/0
+          - ip address 100.3.3.1.255.255.255.0
+        parents: interface FastEthernet0/1 
       register: intf_config
 
     - name: Print Command Output
