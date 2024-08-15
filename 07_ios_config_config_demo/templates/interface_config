@@ -4,3 +4,6 @@ interface  FastEthernet0/1
 interface  FastEthernet1/0
   description from_demo_file
   ip address 10.6.6.6 255.255.255.0
+interface  Serial0/0
+  description from_demo_file
+  ip address 10.5.5.5 255.255.255.0

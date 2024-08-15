@@ -1,0 +1,8 @@
+microservices:
+  - app: user-authentication
+    port: 9000
+    version: 1.7
+    deployed: off
+  - app: shopping-cart
+    port: 9001
+    version: 1.8

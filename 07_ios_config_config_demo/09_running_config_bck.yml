@@ -1,0 +1,10 @@
+---
+- name: Configure Hostname
+  hosts: R1
+  gather_facts: false
+  tasks:
+    - name: Configure Hostname
+      cisco.ios.ios_config:
+        backup: true
+        backup_options:
+          filename: R1.conf
