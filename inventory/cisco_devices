@@ -4,6 +4,8 @@ R2 ansible_host=192.168.237.126
 
 [csr_group]
 R3 ansible_host=192.168.237.127
+SW1 ansible_host=192.168.237.5
+
 
 [routers:children]
 vios_group
@@ -17,3 +19,4 @@ ansible_password=cisco
 ansible_become=true
 ansible_become_method=enable
 ansible_become_password=cisco
+

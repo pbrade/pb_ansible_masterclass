@@ -1,0 +1,17 @@
+---
+- name: interfaces module demo
+  hosts: R3
+  gather_facts: false
+  tasks:
+  - name: Merged L3 Config
+    cisco.ios.ios_l3_interfaces:
+      config:
+        - name: FastEthernet0/1
+          ipv4:
+            - address: 10.10.10.1/29
+      state: merged
+    register: l3_config_output
+
+  - name: Print Output
+    ansible.builtin.debug:
+      msg: "{{ l3_config_output }}"

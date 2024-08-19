@@ -1,0 +1,76 @@
+---
+- name: Configure Network Devices
+  hosts: all
+  gather_facts: no
+  become: yes
+
+  vars:
+    management_ips:
+      R1: "192.168.237.2/24"
+      SW1: "192.168.237.10/24"
+      R2: "192.168.237.3/24"
+      R3: "192.168.237.4/24"
+
+    vlans:
+      - id: 10
+        name: VLAN10
+      - id: 20
+        name: VLAN20
+
+  tasks:
+
+    - name: Configure management IP on R1
+      cisco.ios.ios_config:
+        lines:
+          - interface f0/0
+          - ip address {{ management_ips['R1'] }}
+          - no shutdown
+        host: R1
+
+    - name: Configure management IP on R2
+      ios_config:
+        lines:
+          - interface f0/0
+          - ip address {{ management_ips['R2'] }}
+          - no shutdown
+        host: R2
+
+    - name: Configure management IP on R3
+      ios_config:
+        lines:
+          - interface f0/0
+          - ip address {{ management_ips['R3'] }}
+          - no shutdown
+        host: R3
+
+    - name: Configure management IP on SW1
+      ios_config:
+        lines:
+          - interface Vlan1
+          - ip address {{ management_ips['SW1'] }}
+          - no shutdown
+        host: SW1
+
+    - name: Create VLANs on the switch
+      ios_config:
+        lines:
+          - vlan {{ item.id }}
+          - name {{ item.name }}
+        with_items: "{{ vlans }}"
+        host: SW1
+
+    - name: Assign VLAN 10 to an interface on the switch
+      ios_config:
+        lines:
+          - interface e1
+          - switchport mode access
+          - switchport access vlan 10
+        host: SW1
+
+    - name: Assign VLAN 20 to an interface on the switch
+      ios_config:
+        lines:
+          - interface e2
+          - switchport mode access
+          - switchport access vlan 20
+        host: SW1
