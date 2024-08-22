@@ -3,31 +3,31 @@
   gather_facts: false
   tasks:
   ######### Create User #############
-    # - name: Create User
-    #   no_log: true
-    #   cisco.ios.ios_user:
-    #     name: ansible_admin
-    #     hashed_password:
-    #       type: 5
-    #       value: $1$pass$q.8O0ezj5JxZNEcvsQvQR0
-    #     privilege: 15
-    #   register: add_user
-
-    # - name: Print Output
-    #   ansible.builtin.debug:
-    #     msg: "{{ add_user }}" 
- 
-  ######### Delete User #############
     - name: Create User
       no_log: true
       cisco.ios.ios_user:
-        name: ansible_admin1
-        state: absent
+        name: ansible_admin
+        hashed_password:
+          type: 5
+          value: $1$-1$1U76asZoJBo4RLc58ipix/
+        privilege: 15
       register: add_user
 
     - name: Print Output
       ansible.builtin.debug:
-        msg: "{{ add_user }}"
+        msg: "{{ add_user }}" 
+ 
+  ######### Delete User #############
+    # - name: Create User
+    #   no_log: true
+    #   cisco.ios.ios_user:
+    #     name: ansible_admin
+    #     state: absent
+    #   register: add_user
+
+    # - name: Print Output
+    #   ansible.builtin.debug:
+    #     msg: "{{ add_user }}"
   ######### Purge Users #############
 
     # - name: Create User
